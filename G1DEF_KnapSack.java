@@ -44,14 +44,21 @@ class G1DEF_KnapSack{
             }
         });
         
-
+        double profit =0 ;
         for(int j =arr.length-1 ; j>0 ;j--){
             if(k>0){
-                int count = arr[i].Quantitiy;
+                int count = arr[j].Quantitiy;
                 if(k-count >=0){
-
+                    profit = profit+ arr[j].cost;
+                    k = k-count;
+                }
+                else{
+                    profit = profit + arr[j].perUnitCost*k;
+                    k = 0;
                 }
             }
         }
+
+        System.out.println(profit);
     }
 }
